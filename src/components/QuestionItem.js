@@ -1,6 +1,6 @@
 import React from "react";
 
-function QuestionItem({ question, onHandleDelete, onHandleAnswerChange }) {
+function QuestionItem({ question, onDeleteClick, onHandleAnswerChange }) {
   const { id, prompt, answers, correctIndex } = question;
 
   const options = answers.map((answer, index) => (
@@ -10,11 +10,7 @@ function QuestionItem({ question, onHandleDelete, onHandleAnswerChange }) {
   ));
 
   function handleDelete() {
-    fetch(`http://localhost:4000/questions/${question.id}`, {
-      method: "DELETE"
-    })
-    onHandleDelete(question.id)
-
+    onDeleteClick(id)
   }
 
   function handleAnswerChange(event){

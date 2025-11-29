@@ -19,8 +19,14 @@ function App() {
     }
 
     function handleDeleteQuestion(id){
-      const updatedQuestionList = questions.filter((question) => id !== question.id)
-      setQuestions(updatedQuestionList)
+      fetch(`http://localhost:4000/questions/${id}`, {
+        method: "DELETE"
+      })
+      .then((r) => r.json())
+      .then(() => {
+        const updatedQuestions = questions.filter((q) => q.id !== id);
+        setQuestions(updatedQuestions);
+      });
     }
 
     function handleAnswerChange(id, correctIndex){
@@ -47,7 +53,7 @@ function App() {
   return (
     <main>
       <AdminNavBar onChangePage={setPage} />
-      {page === "Form" ? <QuestionForm onHandleAddQuestion={handleAddQuestion} /> : <QuestionList questions={questions} onHandleDelete={handleDeleteQuestion} onHandleAnswerChange={handleAnswerChange}/>}
+      {page === "Form" ? <QuestionForm onHandleAddQuestion={handleAddQuestion} /> : <QuestionList questions={questions} onDeleteClick={handleDeleteQuestion} onHandleAnswerChange={handleAnswerChange}/>}
     </main>
   );
 }

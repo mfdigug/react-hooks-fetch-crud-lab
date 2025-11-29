@@ -1,7 +1,7 @@
 
 import QuestionItem from "./QuestionItem"
 
-function QuestionList({questions, onHandleDelete, onHandleAnswerChange}) {
+function QuestionList({questions, onDeleteClick, onHandleAnswerChange}) {
 
   console.log(questions)
 
@@ -12,7 +12,7 @@ function QuestionList({questions, onHandleDelete, onHandleAnswerChange}) {
         return <QuestionItem 
           key={question.id}
           question={question}
-          onHandleDelete={onHandleDelete}
+          onDeleteClick={onDeleteClick}
           onHandleAnswerChange={onHandleAnswerChange}
         />
       })}
