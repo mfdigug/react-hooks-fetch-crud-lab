@@ -65,17 +65,6 @@
         "controlled"
       ],
       "correctIndex": 1
-    },
-    {
-      "prompt": "What is coding",
-      "answers": [
-        "fun",
-        "boring",
-        "stressful",
-        "stimulating"
-      ],
-      "correctIndex": 0,
-      "id": 7
     }
   ]
 }
