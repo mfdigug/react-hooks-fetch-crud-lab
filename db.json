@@ -1,17 +1,6 @@
 {
   "questions": [
     {
-      "id": 1,
-      "prompt": "What special prop should always be included for lists of elements?",
-      "answers": [
-        "id",
-        "name",
-        "key",
-        "prop"
-      ],
-      "correctIndex": 2
-    },
-    {
       "id": 2,
       "prompt": "A React component is a function that returns ______.",
       "answers": [
@@ -23,17 +12,6 @@
       "correctIndex": 1
     },
     {
-      "id": 3,
-      "prompt": "Which event handler will run when a user is finished filling out a form?",
-      "answers": [
-        "onSubmit",
-        "onClick",
-        "onChange",
-        "onForm"
-      ],
-      "correctIndex": 0
-    },
-    {
       "id": 4,
       "prompt": "______ is a tool that transpiles JSX into valid JavaScript.",
       "answers": [
@@ -42,7 +20,7 @@
         "Webpack",
         "ES6"
       ],
-      "correctIndex": 1
+      "correctIndex": 2
     },
     {
       "id": 5,
@@ -53,7 +31,7 @@
         "coalescing",
         "destructuring"
       ],
-      "correctIndex": 3
+      "correctIndex": 0
     },
     {
       "id": 6,

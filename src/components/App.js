@@ -23,10 +23,31 @@ function App() {
       setQuestions(updatedQuestionList)
     }
 
+    function handleAnswerChange(id, correctIndex){
+      fetch(`http://localhost:4000/questions/${id}`, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({correctIndex: correctIndex})
+      })
+      .then((r) => r.json())
+      .then((updatedQuestion) => {
+        const updatedQuestionList = questions.map((question) => {
+          if (question.id === updatedQuestion.id){
+            return updatedQuestion
+          } else {
+            return question
+          }
+        })
+        setQuestions(updatedQuestionList)
+      })
+    }
+
   return (
     <main>
       <AdminNavBar onChangePage={setPage} />
-      {page === "Form" ? <QuestionForm onHandleAddQuestion={handleAddQuestion} /> : <QuestionList questions={questions} onHandleDelete={handleDeleteQuestion}/>}
+      {page === "Form" ? <QuestionForm onHandleAddQuestion={handleAddQuestion} /> : <QuestionList questions={questions} onHandleDelete={handleDeleteQuestion} onHandleAnswerChange={handleAnswerChange}/>}
     </main>
   );
 }
